@@ -53,6 +53,116 @@ namespace MealMate_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Dishes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Воздушный омлет с сочными томатами и свежим шпинатом.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/spinach-omelet.jpg",
+                            Instructions = "Взбейте яйца с молоком, обжарьте шпинат с помидорами на оливковом масле, залейте яичной смесью и готовьте до готовности.",
+                            Name = "Омлет со шпинатом",
+                            PreparationMinutes = 15
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Хрустящий цельнозерновой тост с кремовым авокадо и яйцом пашот.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/avocado-toast.jpg",
+                            Instructions = "Поджарьте хлеб, разомните авокадо с лимонным соком, выложите на тост и добавьте яйцо пашот, посолите и поперчите по вкусу.",
+                            Name = "Тост с авокадо и яйцом",
+                            PreparationMinutes = 12
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Свежий и питательный завтрак с бананом, йогуртом и ягодами.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/banana-smoothie-bowl.jpg",
+                            Instructions = "Смешайте йогурт, банан, ягоды и овсянку в блендере, переложите в миску и украсьте мёдом и миндалём.",
+                            Name = "Смузи-болл с бананом",
+                            PreparationMinutes = 8
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Сочная курица в соусе терияки с ароматным жасминовым рисом.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/teriyaki-chicken.jpg",
+                            Instructions = "Обжарьте курицу с чесноком и имбирём, добавьте соевый соус, немного мёда и тушите до загустения, подавайте с отварным рисом и овощами.",
+                            Name = "Курица терияки с рисом",
+                            PreparationMinutes = 30
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Питательный салат с запечённым лососем, киноа и свежими овощами.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/quinoa-salmon-salad.jpg",
+                            Instructions = "Отварите киноа, запеките лосось, смешайте с овощами и заправьте лимонным соком и оливковым маслом.",
+                            Name = "Салат с лососем и киноа",
+                            PreparationMinutes = 25
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Классическая итальянская паста с насыщенным томатным соусом.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/tomato-basil-pasta.jpg",
+                            Instructions = "Отварите пасту, обжарьте чеснок, добавьте томаты и тушите до густоты, смешайте с пастой и свежим базиликом, посыпьте пармезаном.",
+                            Name = "Паста с томатами и базиликом",
+                            PreparationMinutes = 20
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Сытный кремовый суп с овощами и специями.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/red-lentil-soup.jpg",
+                            Instructions = "Обжарьте лук и морковь, добавьте чеснок, чечевицу, томаты и овощной бульон, варите до мягкости и пробейте блендером.",
+                            Name = "Суп из красной чечевицы",
+                            PreparationMinutes = 35
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Тёплая овсянка с йогуртом, ягодами и мёдом.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/berry-oatmeal.jpg",
+                            Instructions = "Сварите овсянку на молоке, переложите в миску, добавьте йогурт, ягоды и мёд, посыпьте миндалём.",
+                            Name = "Овсянка с ягодами",
+                            PreparationMinutes = 10
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "Яркие тако с курицей в кокосово-карри соусе и свежими овощами.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/curry-chicken-tacos.jpg",
+                            Instructions = "Приготовьте курицу с пастой карри и кокосовым молоком, подавайте в тёплых лепёшках с овощами и лаймом.",
+                            Name = "Тако с курицей карри",
+                            PreparationMinutes = 28
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Нежный лосось, запечённый с брокколи и чесноком.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/baked-salmon-broccoli.jpg",
+                            Instructions = "Смешайте оливковое масло с чесноком и лимонным соком, полейте лосось и брокколи и запекайте до готовности.",
+                            Name = "Запечённый лосось с брокколи",
+                            PreparationMinutes = 22
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Классический салат с помидорами, огурцом, фетой и маслинами.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/greek-salad.jpg",
+                            Instructions = "Нарежьте овощи, добавьте фету и маслины, заправьте оливковым маслом и лимонным соком.",
+                            Name = "Греческий салат",
+                            PreparationMinutes = 15
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Полезные буррито с киноа, овощами и фасолью.",
+                            ImageUrl = "https://static.mealmate.app/images/dishes/quinoa-veggie-burrito.jpg",
+                            Instructions = "Отварите киноа, обжарьте овощи с фасолью и кукурузой, заверните начинку в лепёшки и подавайте с лаймом.",
+                            Name = "Буррито с киноа и овощами",
+                            PreparationMinutes = 30
+                        });
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.DishProduct", b =>
@@ -72,6 +182,458 @@ namespace MealMate_backend.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("DishProducts");
+
+                    b.HasData(
+                        new
+                        {
+                            DishId = 1,
+                            ProductId = 1,
+                            Quantity = "3 шт."
+                        },
+                        new
+                        {
+                            DishId = 1,
+                            ProductId = 2,
+                            Quantity = "60 мл"
+                        },
+                        new
+                        {
+                            DishId = 1,
+                            ProductId = 5,
+                            Quantity = "6 шт."
+                        },
+                        new
+                        {
+                            DishId = 1,
+                            ProductId = 6,
+                            Quantity = "2 горсти"
+                        },
+                        new
+                        {
+                            DishId = 1,
+                            ProductId = 13,
+                            Quantity = "1 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 1,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 3,
+                            Quantity = "2 ломтика"
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 4,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 13,
+                            Quantity = "1 ч. л."
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 14,
+                            Quantity = "1 долька"
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 20,
+                            Quantity = "150 г"
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 21,
+                            Quantity = "30 г"
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 22,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 23,
+                            Quantity = "1 ч. л."
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 24,
+                            Quantity = "1 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 37,
+                            Quantity = "80 г"
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 7,
+                            Quantity = "400 г"
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 8,
+                            Quantity = "200 г"
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 9,
+                            Quantity = "4 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 10,
+                            Quantity = "2 см"
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 11,
+                            Quantity = "2 зубчика"
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 12,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 26,
+                            Quantity = "150 г"
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 5,
+                            Quantity = "8 шт."
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 6,
+                            Quantity = "1 горсть"
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 13,
+                            Quantity = "2 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 14,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 15,
+                            Quantity = "300 г"
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 16,
+                            Quantity = "150 г"
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 17,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 11,
+                            Quantity = "2 зубчика"
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 13,
+                            Quantity = "1 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 27,
+                            Quantity = "400 г"
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 28,
+                            Quantity = "250 г"
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 29,
+                            Quantity = "1 горсть"
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 30,
+                            Quantity = "30 г"
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 11,
+                            Quantity = "2 зубчика"
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 19,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 25,
+                            Quantity = "2 шт."
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 27,
+                            Quantity = "200 г"
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 31,
+                            Quantity = "200 г"
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 36,
+                            Quantity = "700 мл"
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 2,
+                            Quantity = "200 мл"
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 20,
+                            Quantity = "100 г"
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 21,
+                            Quantity = "60 г"
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 23,
+                            Quantity = "1 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 24,
+                            Quantity = "1 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 37,
+                            Quantity = "80 г"
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 7,
+                            Quantity = "350 г"
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 12,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 19,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 32,
+                            Quantity = "200 мл"
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 33,
+                            Quantity = "2 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 34,
+                            Quantity = "4 шт."
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 35,
+                            Quantity = "100 г"
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 38,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 11,
+                            Quantity = "2 зубчика"
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 13,
+                            Quantity = "2 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 14,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 15,
+                            Quantity = "400 г"
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 26,
+                            Quantity = "200 г"
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 5,
+                            Quantity = "10 шт."
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 13,
+                            Quantity = "2 ст. л."
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 14,
+                            Quantity = "1/2 шт."
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 17,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 18,
+                            Quantity = "120 г"
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 19,
+                            Quantity = "1/2 шт."
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            ProductId = 39,
+                            Quantity = "12 шт."
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 6,
+                            Quantity = "1 горсть"
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 12,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 16,
+                            Quantity = "180 г"
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 34,
+                            Quantity = "4 шт."
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 35,
+                            Quantity = "120 г"
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 38,
+                            Quantity = "1 шт."
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 40,
+                            Quantity = "200 г"
+                        });
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.MealGroup", b =>
@@ -98,6 +660,36 @@ namespace MealMate_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MealGroups");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccentColor = "#FFB74D",
+                            Description = "Лёгкие и бодрящие варианты для завтрака.",
+                            Name = "Утренние энергии"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccentColor = "#4FC3F7",
+                            Description = "Сытные блюда, которые готовятся за полчаса.",
+                            Name = "Быстрые обеды"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccentColor = "#9575CD",
+                            Description = "Тёплые блюда для уютного вечера.",
+                            Name = "Семейные ужины"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AccentColor = "#81C784",
+                            Description = "Баланс белков, жиров и углеводов для активного дня.",
+                            Name = "Здоровый выбор"
+                        });
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.MealGroupDish", b =>
@@ -113,6 +705,88 @@ namespace MealMate_backend.Migrations
                     b.HasIndex("DishId");
 
                     b.ToTable("MealGroupDishes");
+
+                    b.HasData(
+                        new
+                        {
+                            DishId = 1,
+                            MealGroupId = 1
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            MealGroupId = 1
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            MealGroupId = 1
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            MealGroupId = 1
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            MealGroupId = 2
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            MealGroupId = 2
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            MealGroupId = 2
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            MealGroupId = 2
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            MealGroupId = 3
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            MealGroupId = 3
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            MealGroupId = 3
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            MealGroupId = 3
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            MealGroupId = 4
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            MealGroupId = 4
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            MealGroupId = 4
+                        },
+                        new
+                        {
+                            DishId = 11,
+                            MealGroupId = 4
+                        });
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.Product", b =>
@@ -139,6 +813,248 @@ namespace MealMate_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Молочные и яйца",
+                            Name = "Яйца куриные"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Молочные и яйца",
+                            Name = "Молоко"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Выпечка",
+                            Name = "Хлеб цельнозерновой"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Овощи и фрукты",
+                            Name = "Авокадо"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Овощи и фрукты",
+                            Name = "Помидоры черри"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Овощи и фрукты",
+                            Name = "Шпинат свежий"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Мясо и птица",
+                            Name = "Куриное филе"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Category = "Крупы",
+                            Name = "Рис жасмин"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Соусы и специи",
+                            Name = "Соевый соус"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Category = "Овощи и фрукты",
+                            Name = "Имбирь свежий"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Category = "Овощи и фрукты",
+                            Name = "Чеснок"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Category = "Овощи и фрукты",
+                            Name = "Перец болгарский"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Category = "Бакалея",
+                            Name = "Оливковое масло"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Category = "Овощи и фрукты",
+                            Name = "Лимон"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Category = "Рыба и морепродукты",
+                            Name = "Лосось"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Category = "Крупы",
+                            Name = "Киноа"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Category = "Овощи и фрукты",
+                            Name = "Огурец"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Category = "Сыры",
+                            Name = "Сыр фета"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Category = "Овощи и фрукты",
+                            Name = "Лук красный"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Category = "Молочные и яйца",
+                            Name = "Йогурт греческий"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Category = "Крупы",
+                            Name = "Овсяные хлопья"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Category = "Овощи и фрукты",
+                            Name = "Банан"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Category = "Бакалея",
+                            Name = "Мёд"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Category = "Орехи",
+                            Name = "Миндаль"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Category = "Овощи и фрукты",
+                            Name = "Морковь"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Category = "Овощи и фрукты",
+                            Name = "Брокколи"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Category = "Консервы",
+                            Name = "Томаты консервированные"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Category = "Бакалея",
+                            Name = "Макароны пенне"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Category = "Овощи и фрукты",
+                            Name = "Базилик свежий"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Category = "Сыры",
+                            Name = "Сыр пармезан"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Category = "Крупы",
+                            Name = "Чечевица красная"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Category = "Бакалея",
+                            Name = "Кокосовое молоко"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Category = "Соусы и специи",
+                            Name = "Карри паста"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Category = "Выпечка",
+                            Name = "Лепёшки пшеничные"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Category = "Овощи и фрукты",
+                            Name = "Кукуруза замороженная"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Category = "Бакалея",
+                            Name = "Овощной бульон"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Category = "Овощи и фрукты",
+                            Name = "Ягоды замороженные"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Category = "Овощи и фрукты",
+                            Name = "Лайм"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Category = "Консервы",
+                            Name = "Маслины"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Category = "Консервы",
+                            Name = "Фасоль чёрная консервированная"
+                        });
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.DishProduct", b =>
