@@ -45,4 +45,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<MealMateDbContext>();
+    db.Database.Migrate();
+}
+
 app.Run();
