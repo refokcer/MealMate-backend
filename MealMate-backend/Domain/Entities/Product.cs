@@ -13,8 +13,14 @@ public class Product
     [MaxLength(40)]
     public string? Category { get; set; }
 
+    [Required]
+    [MaxLength(20)]
+    public string Unit { get; set; } = "шт.";
+
     [MaxLength(200)]
     public string? Notes { get; set; }
 
     public ICollection<DishProduct> DishProducts { get; set; } = new List<DishProduct>();
+    public ICollection<ShoppingListItem> ShoppingListItems { get; set; } = new List<ShoppingListItem>();
+    public ICollection<BaseShoppingProduct> BaseShoppingProducts { get; set; } = new List<BaseShoppingProduct>();
 }

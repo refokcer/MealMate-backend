@@ -14,6 +14,8 @@ builder.Services.AddScoped<IDishProductService, DishProductService>();
 builder.Services.AddScoped<IMealGroupService, MealGroupService>();
 builder.Services.AddScoped<IMealGroupDishService, MealGroupDishService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IShoppingListService, ShoppingListService>();
+builder.Services.AddScoped<IBaseShoppingProductService, BaseShoppingProductService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

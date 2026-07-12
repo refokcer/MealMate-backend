@@ -10,6 +10,6 @@ public record DishDto(
     IReadOnlyCollection<DishProductSummaryDto> Products,
     IReadOnlyCollection<MealGroupSummaryDto> MealGroups);
 
-public record DishProductSummaryDto(int ProductId, string ProductName, string? Quantity);
+public record DishProductSummaryDto(int ProductId, string ProductName, decimal? Quantity, string Unit);
 
 public record MealGroupSummaryDto(int MealGroupId, string MealGroupName);

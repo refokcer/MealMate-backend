@@ -43,6 +43,7 @@ public class ProductService : IProductService
         {
             Name = request.Name.Trim(),
             Category = request.Category?.Trim(),
+            Unit = request.Unit.Trim(),
             Notes = request.Notes?.Trim()
         };
 
@@ -62,6 +63,7 @@ public class ProductService : IProductService
 
         product.Name = request.Name.Trim();
         product.Category = request.Category?.Trim();
+        product.Unit = request.Unit.Trim();
         product.Notes = request.Notes?.Trim();
 
         await _context.SaveChangesAsync(cancellationToken);
@@ -88,13 +90,15 @@ public class ProductService : IProductService
             .Select(dp => new ProductDishSummaryDto(
                 dp.DishId,
                 dp.Dish.Name,
-                dp.Quantity))
+                dp.Quantity,
+                product.Unit))
             .ToList();
 
         return new ProductDto(
             product.Id,
             product.Name,
             product.Category,
+            product.Unit,
             product.Notes,
             dishes);
     }

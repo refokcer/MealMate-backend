@@ -5,4 +5,5 @@ public record DishProductDto(
     string DishName,
     int ProductId,
     string ProductName,
-    string? Quantity);
+    decimal? Quantity,
+    string Unit);

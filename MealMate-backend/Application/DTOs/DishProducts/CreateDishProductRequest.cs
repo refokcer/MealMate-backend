@@ -10,6 +10,5 @@ public class CreateDishProductRequest
     [Required]
     public int ProductId { get; set; }
 
-    [MaxLength(80)]
-    public string? Quantity { get; set; }
+    public decimal? Quantity { get; set; }
 }

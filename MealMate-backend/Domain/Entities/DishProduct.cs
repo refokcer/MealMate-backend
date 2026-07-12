@@ -10,6 +10,5 @@ public class DishProduct
     public int ProductId { get; set; }
     public Product Product { get; set; } = default!;
 
-    [MaxLength(80)]
-    public string? Quantity { get; set; }
+    public decimal? Quantity { get; set; }
 }

@@ -22,6 +22,33 @@ namespace MealMate_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MealMate_backend.Domain.Entities.BaseShoppingProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Quantity")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("BaseShoppingProducts");
+                });
+
             modelBuilder.Entity("MealMate_backend.Domain.Entities.Dish", b =>
                 {
                     b.Property<int>("Id")
@@ -58,109 +85,109 @@ namespace MealMate_backend.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Воздушный омлет с сочными томатами и свежим шпинатом.",
+                            Description = "Р’РѕР·РґСѓС€РЅС‹Р№ РѕРјР»РµС‚ СЃ СЃРѕС‡РЅС‹РјРё С‚РѕРјР°С‚Р°РјРё Рё СЃРІРµР¶РёРј С€РїРёРЅР°С‚РѕРј.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/spinach-omelet.jpg",
-                            Instructions = "Взбейте яйца с молоком, обжарьте шпинат с помидорами на оливковом масле, залейте яичной смесью и готовьте до готовности.",
-                            Name = "Омлет со шпинатом",
+                            Instructions = "Р’Р·Р±РµР№С‚Рµ СЏР№С†Р° СЃ РјРѕР»РѕРєРѕРј, РѕР±Р¶Р°СЂСЊС‚Рµ С€РїРёРЅР°С‚ СЃ РїРѕРјРёРґРѕСЂР°РјРё РЅР° РѕР»РёРІРєРѕРІРѕРј РјР°СЃР»Рµ, Р·Р°Р»РµР№С‚Рµ СЏРёС‡РЅРѕР№ СЃРјРµСЃСЊСЋ Рё РіРѕС‚РѕРІСЊС‚Рµ РґРѕ РіРѕС‚РѕРІРЅРѕСЃС‚Рё.",
+                            Name = "РћРјР»РµС‚ СЃРѕ С€РїРёРЅР°С‚РѕРј",
                             PreparationMinutes = 15
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Хрустящий цельнозерновой тост с кремовым авокадо и яйцом пашот.",
+                            Description = "РҐСЂСѓСЃС‚СЏС‰РёР№ С†РµР»СЊРЅРѕР·РµСЂРЅРѕРІРѕР№ С‚РѕСЃС‚ СЃ РєСЂРµРјРѕРІС‹Рј Р°РІРѕРєР°РґРѕ Рё СЏР№С†РѕРј РїР°С€РѕС‚.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/avocado-toast.jpg",
-                            Instructions = "Поджарьте хлеб, разомните авокадо с лимонным соком, выложите на тост и добавьте яйцо пашот, посолите и поперчите по вкусу.",
-                            Name = "Тост с авокадо и яйцом",
+                            Instructions = "РџРѕРґР¶Р°СЂСЊС‚Рµ С…Р»РµР±, СЂР°Р·РѕРјРЅРёС‚Рµ Р°РІРѕРєР°РґРѕ СЃ Р»РёРјРѕРЅРЅС‹Рј СЃРѕРєРѕРј, РІС‹Р»РѕР¶РёС‚Рµ РЅР° С‚РѕСЃС‚ Рё РґРѕР±Р°РІСЊС‚Рµ СЏР№С†Рѕ РїР°С€РѕС‚, РїРѕСЃРѕР»РёС‚Рµ Рё РїРѕРїРµСЂС‡РёС‚Рµ РїРѕ РІРєСѓСЃСѓ.",
+                            Name = "РўРѕСЃС‚ СЃ Р°РІРѕРєР°РґРѕ Рё СЏР№С†РѕРј",
                             PreparationMinutes = 12
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Свежий и питательный завтрак с бананом, йогуртом и ягодами.",
+                            Description = "РЎРІРµР¶РёР№ Рё РїРёС‚Р°С‚РµР»СЊРЅС‹Р№ Р·Р°РІС‚СЂР°Рє СЃ Р±Р°РЅР°РЅРѕРј, Р№РѕРіСѓСЂС‚РѕРј Рё СЏРіРѕРґР°РјРё.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/banana-smoothie-bowl.jpg",
-                            Instructions = "Смешайте йогурт, банан, ягоды и овсянку в блендере, переложите в миску и украсьте мёдом и миндалём.",
-                            Name = "Смузи-болл с бананом",
+                            Instructions = "РЎРјРµС€Р°Р№С‚Рµ Р№РѕРіСѓСЂС‚, Р±Р°РЅР°РЅ, СЏРіРѕРґС‹ Рё РѕРІСЃСЏРЅРєСѓ РІ Р±Р»РµРЅРґРµСЂРµ, РїРµСЂРµР»РѕР¶РёС‚Рµ РІ РјРёСЃРєСѓ Рё СѓРєСЂР°СЃСЊС‚Рµ РјС‘РґРѕРј Рё РјРёРЅРґР°Р»С‘Рј.",
+                            Name = "РЎРјСѓР·Рё-Р±РѕР»Р» СЃ Р±Р°РЅР°РЅРѕРј",
                             PreparationMinutes = 8
                         },
                         new
                         {
                             Id = 4,
-                            Description = "Сочная курица в соусе терияки с ароматным жасминовым рисом.",
+                            Description = "РЎРѕС‡РЅР°СЏ РєСѓСЂРёС†Р° РІ СЃРѕСѓСЃРµ С‚РµСЂРёСЏРєРё СЃ Р°СЂРѕРјР°С‚РЅС‹Рј Р¶Р°СЃРјРёРЅРѕРІС‹Рј СЂРёСЃРѕРј.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/teriyaki-chicken.jpg",
-                            Instructions = "Обжарьте курицу с чесноком и имбирём, добавьте соевый соус, немного мёда и тушите до загустения, подавайте с отварным рисом и овощами.",
-                            Name = "Курица терияки с рисом",
+                            Instructions = "РћР±Р¶Р°СЂСЊС‚Рµ РєСѓСЂРёС†Сѓ СЃ С‡РµСЃРЅРѕРєРѕРј Рё РёРјР±РёСЂС‘Рј, РґРѕР±Р°РІСЊС‚Рµ СЃРѕРµРІС‹Р№ СЃРѕСѓСЃ, РЅРµРјРЅРѕРіРѕ РјС‘РґР° Рё С‚СѓС€РёС‚Рµ РґРѕ Р·Р°РіСѓСЃС‚РµРЅРёСЏ, РїРѕРґР°РІР°Р№С‚Рµ СЃ РѕС‚РІР°СЂРЅС‹Рј СЂРёСЃРѕРј Рё РѕРІРѕС‰Р°РјРё.",
+                            Name = "РљСѓСЂРёС†Р° С‚РµСЂРёСЏРєРё СЃ СЂРёСЃРѕРј",
                             PreparationMinutes = 30
                         },
                         new
                         {
                             Id = 5,
-                            Description = "Питательный салат с запечённым лососем, киноа и свежими овощами.",
+                            Description = "РџРёС‚Р°С‚РµР»СЊРЅС‹Р№ СЃР°Р»Р°С‚ СЃ Р·Р°РїРµС‡С‘РЅРЅС‹Рј Р»РѕСЃРѕСЃРµРј, РєРёРЅРѕР° Рё СЃРІРµР¶РёРјРё РѕРІРѕС‰Р°РјРё.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/quinoa-salmon-salad.jpg",
-                            Instructions = "Отварите киноа, запеките лосось, смешайте с овощами и заправьте лимонным соком и оливковым маслом.",
-                            Name = "Салат с лососем и киноа",
+                            Instructions = "РћС‚РІР°СЂРёС‚Рµ РєРёРЅРѕР°, Р·Р°РїРµРєРёС‚Рµ Р»РѕСЃРѕСЃСЊ, СЃРјРµС€Р°Р№С‚Рµ СЃ РѕРІРѕС‰Р°РјРё Рё Р·Р°РїСЂР°РІСЊС‚Рµ Р»РёРјРѕРЅРЅС‹Рј СЃРѕРєРѕРј Рё РѕР»РёРІРєРѕРІС‹Рј РјР°СЃР»РѕРј.",
+                            Name = "РЎР°Р»Р°С‚ СЃ Р»РѕСЃРѕСЃРµРј Рё РєРёРЅРѕР°",
                             PreparationMinutes = 25
                         },
                         new
                         {
                             Id = 6,
-                            Description = "Классическая итальянская паста с насыщенным томатным соусом.",
+                            Description = "РљР»Р°СЃСЃРёС‡РµСЃРєР°СЏ РёС‚Р°Р»СЊСЏРЅСЃРєР°СЏ РїР°СЃС‚Р° СЃ РЅР°СЃС‹С‰РµРЅРЅС‹Рј С‚РѕРјР°С‚РЅС‹Рј СЃРѕСѓСЃРѕРј.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/tomato-basil-pasta.jpg",
-                            Instructions = "Отварите пасту, обжарьте чеснок, добавьте томаты и тушите до густоты, смешайте с пастой и свежим базиликом, посыпьте пармезаном.",
-                            Name = "Паста с томатами и базиликом",
+                            Instructions = "РћС‚РІР°СЂРёС‚Рµ РїР°СЃС‚Сѓ, РѕР±Р¶Р°СЂСЊС‚Рµ С‡РµСЃРЅРѕРє, РґРѕР±Р°РІСЊС‚Рµ С‚РѕРјР°С‚С‹ Рё С‚СѓС€РёС‚Рµ РґРѕ РіСѓСЃС‚РѕС‚С‹, СЃРјРµС€Р°Р№С‚Рµ СЃ РїР°СЃС‚РѕР№ Рё СЃРІРµР¶РёРј Р±Р°Р·РёР»РёРєРѕРј, РїРѕСЃС‹РїСЊС‚Рµ РїР°СЂРјРµР·Р°РЅРѕРј.",
+                            Name = "РџР°СЃС‚Р° СЃ С‚РѕРјР°С‚Р°РјРё Рё Р±Р°Р·РёР»РёРєРѕРј",
                             PreparationMinutes = 20
                         },
                         new
                         {
                             Id = 7,
-                            Description = "Сытный кремовый суп с овощами и специями.",
+                            Description = "РЎС‹С‚РЅС‹Р№ РєСЂРµРјРѕРІС‹Р№ СЃСѓРї СЃ РѕРІРѕС‰Р°РјРё Рё СЃРїРµС†РёСЏРјРё.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/red-lentil-soup.jpg",
-                            Instructions = "Обжарьте лук и морковь, добавьте чеснок, чечевицу, томаты и овощной бульон, варите до мягкости и пробейте блендером.",
-                            Name = "Суп из красной чечевицы",
+                            Instructions = "РћР±Р¶Р°СЂСЊС‚Рµ Р»СѓРє Рё РјРѕСЂРєРѕРІСЊ, РґРѕР±Р°РІСЊС‚Рµ С‡РµСЃРЅРѕРє, С‡РµС‡РµРІРёС†Сѓ, С‚РѕРјР°С‚С‹ Рё РѕРІРѕС‰РЅРѕР№ Р±СѓР»СЊРѕРЅ, РІР°СЂРёС‚Рµ РґРѕ РјСЏРіРєРѕСЃС‚Рё Рё РїСЂРѕР±РµР№С‚Рµ Р±Р»РµРЅРґРµСЂРѕРј.",
+                            Name = "РЎСѓРї РёР· РєСЂР°СЃРЅРѕР№ С‡РµС‡РµРІРёС†С‹",
                             PreparationMinutes = 35
                         },
                         new
                         {
                             Id = 8,
-                            Description = "Тёплая овсянка с йогуртом, ягодами и мёдом.",
+                            Description = "РўС‘РїР»Р°СЏ РѕРІСЃСЏРЅРєР° СЃ Р№РѕРіСѓСЂС‚РѕРј, СЏРіРѕРґР°РјРё Рё РјС‘РґРѕРј.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/berry-oatmeal.jpg",
-                            Instructions = "Сварите овсянку на молоке, переложите в миску, добавьте йогурт, ягоды и мёд, посыпьте миндалём.",
-                            Name = "Овсянка с ягодами",
+                            Instructions = "РЎРІР°СЂРёС‚Рµ РѕРІСЃСЏРЅРєСѓ РЅР° РјРѕР»РѕРєРµ, РїРµСЂРµР»РѕР¶РёС‚Рµ РІ РјРёСЃРєСѓ, РґРѕР±Р°РІСЊС‚Рµ Р№РѕРіСѓСЂС‚, СЏРіРѕРґС‹ Рё РјС‘Рґ, РїРѕСЃС‹РїСЊС‚Рµ РјРёРЅРґР°Р»С‘Рј.",
+                            Name = "РћРІСЃСЏРЅРєР° СЃ СЏРіРѕРґР°РјРё",
                             PreparationMinutes = 10
                         },
                         new
                         {
                             Id = 9,
-                            Description = "Яркие тако с курицей в кокосово-карри соусе и свежими овощами.",
+                            Description = "РЇСЂРєРёРµ С‚Р°РєРѕ СЃ РєСѓСЂРёС†РµР№ РІ РєРѕРєРѕСЃРѕРІРѕ-РєР°СЂСЂРё СЃРѕСѓСЃРµ Рё СЃРІРµР¶РёРјРё РѕРІРѕС‰Р°РјРё.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/curry-chicken-tacos.jpg",
-                            Instructions = "Приготовьте курицу с пастой карри и кокосовым молоком, подавайте в тёплых лепёшках с овощами и лаймом.",
-                            Name = "Тако с курицей карри",
+                            Instructions = "РџСЂРёРіРѕС‚РѕРІСЊС‚Рµ РєСѓСЂРёС†Сѓ СЃ РїР°СЃС‚РѕР№ РєР°СЂСЂРё Рё РєРѕРєРѕСЃРѕРІС‹Рј РјРѕР»РѕРєРѕРј, РїРѕРґР°РІР°Р№С‚Рµ РІ С‚С‘РїР»С‹С… Р»РµРїС‘С€РєР°С… СЃ РѕРІРѕС‰Р°РјРё Рё Р»Р°Р№РјРѕРј.",
+                            Name = "РўР°РєРѕ СЃ РєСѓСЂРёС†РµР№ РєР°СЂСЂРё",
                             PreparationMinutes = 28
                         },
                         new
                         {
                             Id = 10,
-                            Description = "Нежный лосось, запечённый с брокколи и чесноком.",
+                            Description = "РќРµР¶РЅС‹Р№ Р»РѕСЃРѕСЃСЊ, Р·Р°РїРµС‡С‘РЅРЅС‹Р№ СЃ Р±СЂРѕРєРєРѕР»Рё Рё С‡РµСЃРЅРѕРєРѕРј.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/baked-salmon-broccoli.jpg",
-                            Instructions = "Смешайте оливковое масло с чесноком и лимонным соком, полейте лосось и брокколи и запекайте до готовности.",
-                            Name = "Запечённый лосось с брокколи",
+                            Instructions = "РЎРјРµС€Р°Р№С‚Рµ РѕР»РёРІРєРѕРІРѕРµ РјР°СЃР»Рѕ СЃ С‡РµСЃРЅРѕРєРѕРј Рё Р»РёРјРѕРЅРЅС‹Рј СЃРѕРєРѕРј, РїРѕР»РµР№С‚Рµ Р»РѕСЃРѕСЃСЊ Рё Р±СЂРѕРєРєРѕР»Рё Рё Р·Р°РїРµРєР°Р№С‚Рµ РґРѕ РіРѕС‚РѕРІРЅРѕСЃС‚Рё.",
+                            Name = "Р—Р°РїРµС‡С‘РЅРЅС‹Р№ Р»РѕСЃРѕСЃСЊ СЃ Р±СЂРѕРєРєРѕР»Рё",
                             PreparationMinutes = 22
                         },
                         new
                         {
                             Id = 11,
-                            Description = "Классический салат с помидорами, огурцом, фетой и маслинами.",
+                            Description = "РљР»Р°СЃСЃРёС‡РµСЃРєРёР№ СЃР°Р»Р°С‚ СЃ РїРѕРјРёРґРѕСЂР°РјРё, РѕРіСѓСЂС†РѕРј, С„РµС‚РѕР№ Рё РјР°СЃР»РёРЅР°РјРё.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/greek-salad.jpg",
-                            Instructions = "Нарежьте овощи, добавьте фету и маслины, заправьте оливковым маслом и лимонным соком.",
-                            Name = "Греческий салат",
+                            Instructions = "РќР°СЂРµР¶СЊС‚Рµ РѕРІРѕС‰Рё, РґРѕР±Р°РІСЊС‚Рµ С„РµС‚Сѓ Рё РјР°СЃР»РёРЅС‹, Р·Р°РїСЂР°РІСЊС‚Рµ РѕР»РёРІРєРѕРІС‹Рј РјР°СЃР»РѕРј Рё Р»РёРјРѕРЅРЅС‹Рј СЃРѕРєРѕРј.",
+                            Name = "Р“СЂРµС‡РµСЃРєРёР№ СЃР°Р»Р°С‚",
                             PreparationMinutes = 15
                         },
                         new
                         {
                             Id = 12,
-                            Description = "Полезные буррито с киноа, овощами и фасолью.",
+                            Description = "РџРѕР»РµР·РЅС‹Рµ Р±СѓСЂСЂРёС‚Рѕ СЃ РєРёРЅРѕР°, РѕРІРѕС‰Р°РјРё Рё С„Р°СЃРѕР»СЊСЋ.",
                             ImageUrl = "https://static.mealmate.app/images/dishes/quinoa-veggie-burrito.jpg",
-                            Instructions = "Отварите киноа, обжарьте овощи с фасолью и кукурузой, заверните начинку в лепёшки и подавайте с лаймом.",
-                            Name = "Буррито с киноа и овощами",
+                            Instructions = "РћС‚РІР°СЂРёС‚Рµ РєРёРЅРѕР°, РѕР±Р¶Р°СЂСЊС‚Рµ РѕРІРѕС‰Рё СЃ С„Р°СЃРѕР»СЊСЋ Рё РєСѓРєСѓСЂСѓР·РѕР№, Р·Р°РІРµСЂРЅРёС‚Рµ РЅР°С‡РёРЅРєСѓ РІ Р»РµРїС‘С€РєРё Рё РїРѕРґР°РІР°Р№С‚Рµ СЃ Р»Р°Р№РјРѕРј.",
+                            Name = "Р‘СѓСЂСЂРёС‚Рѕ СЃ РєРёРЅРѕР° Рё РѕРІРѕС‰Р°РјРё",
                             PreparationMinutes = 30
                         });
                 });
@@ -173,9 +200,9 @@ namespace MealMate_backend.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Quantity")
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                    b.Property<decimal?>("Quantity")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("DishId", "ProductId");
 
@@ -188,451 +215,451 @@ namespace MealMate_backend.Migrations
                         {
                             DishId = 1,
                             ProductId = 1,
-                            Quantity = "3 шт."
+                            Quantity = 3m
                         },
                         new
                         {
                             DishId = 1,
                             ProductId = 2,
-                            Quantity = "60 мл"
+                            Quantity = 60m
                         },
                         new
                         {
                             DishId = 1,
                             ProductId = 5,
-                            Quantity = "6 шт."
+                            Quantity = 6m
                         },
                         new
                         {
                             DishId = 1,
                             ProductId = 6,
-                            Quantity = "2 горсти"
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 1,
                             ProductId = 13,
-                            Quantity = "1 ст. л."
-                        },
-                        new
-                        {
-                            DishId = 2,
-                            ProductId = 1,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 2,
                             ProductId = 3,
-                            Quantity = "2 ломтика"
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 2,
                             ProductId = 4,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 2,
-                            ProductId = 13,
-                            Quantity = "1 ч. л."
+                            ProductId = 1,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 2,
                             ProductId = 14,
-                            Quantity = "1 долька"
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 2,
+                            ProductId = 13,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 3,
                             ProductId = 20,
-                            Quantity = "150 г"
-                        },
-                        new
-                        {
-                            DishId = 3,
-                            ProductId = 21,
-                            Quantity = "30 г"
+                            Quantity = 150m
                         },
                         new
                         {
                             DishId = 3,
                             ProductId = 22,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 3,
-                            ProductId = 23,
-                            Quantity = "1 ч. л."
-                        },
-                        new
-                        {
-                            DishId = 3,
-                            ProductId = 24,
-                            Quantity = "1 ст. л."
+                            ProductId = 21,
+                            Quantity = 30m
                         },
                         new
                         {
                             DishId = 3,
                             ProductId = 37,
-                            Quantity = "80 г"
+                            Quantity = 80m
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 23,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 3,
+                            ProductId = 24,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 4,
                             ProductId = 7,
-                            Quantity = "400 г"
+                            Quantity = 400m
                         },
                         new
                         {
                             DishId = 4,
-                            ProductId = 8,
-                            Quantity = "200 г"
-                        },
-                        new
-                        {
-                            DishId = 4,
-                            ProductId = 9,
-                            Quantity = "4 ст. л."
+                            ProductId = 11,
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 4,
                             ProductId = 10,
-                            Quantity = "2 см"
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 4,
-                            ProductId = 11,
-                            Quantity = "2 зубчика"
+                            ProductId = 9,
+                            Quantity = 4m
+                        },
+                        new
+                        {
+                            DishId = 4,
+                            ProductId = 8,
+                            Quantity = 200m
                         },
                         new
                         {
                             DishId = 4,
                             ProductId = 12,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 4,
                             ProductId = 26,
-                            Quantity = "150 г"
-                        },
-                        new
-                        {
-                            DishId = 5,
-                            ProductId = 5,
-                            Quantity = "8 шт."
-                        },
-                        new
-                        {
-                            DishId = 5,
-                            ProductId = 6,
-                            Quantity = "1 горсть"
-                        },
-                        new
-                        {
-                            DishId = 5,
-                            ProductId = 13,
-                            Quantity = "2 ст. л."
-                        },
-                        new
-                        {
-                            DishId = 5,
-                            ProductId = 14,
-                            Quantity = "1 шт."
+                            Quantity = 150m
                         },
                         new
                         {
                             DishId = 5,
                             ProductId = 15,
-                            Quantity = "300 г"
+                            Quantity = 300m
                         },
                         new
                         {
                             DishId = 5,
                             ProductId = 16,
-                            Quantity = "150 г"
+                            Quantity = 150m
+                        },
+                        new
+                        {
+                            DishId = 5,
+                            ProductId = 6,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 5,
                             ProductId = 17,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
-                            DishId = 6,
-                            ProductId = 11,
-                            Quantity = "2 зубчика"
+                            DishId = 5,
+                            ProductId = 5,
+                            Quantity = 8m
                         },
                         new
                         {
-                            DishId = 6,
+                            DishId = 5,
+                            ProductId = 14,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 5,
                             ProductId = 13,
-                            Quantity = "1 ст. л."
-                        },
-                        new
-                        {
-                            DishId = 6,
-                            ProductId = 27,
-                            Quantity = "400 г"
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 6,
                             ProductId = 28,
-                            Quantity = "250 г"
+                            Quantity = 250m
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 27,
+                            Quantity = 400m
+                        },
+                        new
+                        {
+                            DishId = 6,
+                            ProductId = 11,
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 6,
                             ProductId = 29,
-                            Quantity = "1 горсть"
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 6,
                             ProductId = 30,
-                            Quantity = "30 г"
+                            Quantity = 30m
                         },
                         new
                         {
-                            DishId = 7,
-                            ProductId = 11,
-                            Quantity = "2 зубчика"
-                        },
-                        new
-                        {
-                            DishId = 7,
-                            ProductId = 19,
-                            Quantity = "1 шт."
-                        },
-                        new
-                        {
-                            DishId = 7,
-                            ProductId = 25,
-                            Quantity = "2 шт."
-                        },
-                        new
-                        {
-                            DishId = 7,
-                            ProductId = 27,
-                            Quantity = "200 г"
+                            DishId = 6,
+                            ProductId = 13,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 7,
                             ProductId = 31,
-                            Quantity = "200 г"
+                            Quantity = 200m
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 19,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 25,
+                            Quantity = 2m
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 11,
+                            Quantity = 2m
+                        },
+                        new
+                        {
+                            DishId = 7,
+                            ProductId = 27,
+                            Quantity = 200m
                         },
                         new
                         {
                             DishId = 7,
                             ProductId = 36,
-                            Quantity = "700 мл"
-                        },
-                        new
-                        {
-                            DishId = 8,
-                            ProductId = 2,
-                            Quantity = "200 мл"
-                        },
-                        new
-                        {
-                            DishId = 8,
-                            ProductId = 20,
-                            Quantity = "100 г"
+                            Quantity = 700m
                         },
                         new
                         {
                             DishId = 8,
                             ProductId = 21,
-                            Quantity = "60 г"
+                            Quantity = 60m
                         },
                         new
                         {
                             DishId = 8,
-                            ProductId = 23,
-                            Quantity = "1 ст. л."
+                            ProductId = 2,
+                            Quantity = 200m
                         },
                         new
                         {
                             DishId = 8,
-                            ProductId = 24,
-                            Quantity = "1 ст. л."
+                            ProductId = 20,
+                            Quantity = 100m
                         },
                         new
                         {
                             DishId = 8,
                             ProductId = 37,
-                            Quantity = "80 г"
+                            Quantity = 80m
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 23,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 8,
+                            ProductId = 24,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 9,
                             ProductId = 7,
-                            Quantity = "350 г"
-                        },
-                        new
-                        {
-                            DishId = 9,
-                            ProductId = 12,
-                            Quantity = "1 шт."
-                        },
-                        new
-                        {
-                            DishId = 9,
-                            ProductId = 19,
-                            Quantity = "1 шт."
-                        },
-                        new
-                        {
-                            DishId = 9,
-                            ProductId = 32,
-                            Quantity = "200 мл"
+                            Quantity = 350m
                         },
                         new
                         {
                             DishId = 9,
                             ProductId = 33,
-                            Quantity = "2 ст. л."
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 9,
-                            ProductId = 34,
-                            Quantity = "4 шт."
+                            ProductId = 32,
+                            Quantity = 200m
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 12,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 9,
                             ProductId = 35,
-                            Quantity = "100 г"
+                            Quantity = 100m
+                        },
+                        new
+                        {
+                            DishId = 9,
+                            ProductId = 19,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 9,
                             ProductId = 38,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
-                            DishId = 10,
-                            ProductId = 11,
-                            Quantity = "2 зубчика"
-                        },
-                        new
-                        {
-                            DishId = 10,
-                            ProductId = 13,
-                            Quantity = "2 ст. л."
-                        },
-                        new
-                        {
-                            DishId = 10,
-                            ProductId = 14,
-                            Quantity = "1 шт."
+                            DishId = 9,
+                            ProductId = 34,
+                            Quantity = 4m
                         },
                         new
                         {
                             DishId = 10,
                             ProductId = 15,
-                            Quantity = "400 г"
+                            Quantity = 400m
                         },
                         new
                         {
                             DishId = 10,
                             ProductId = 26,
-                            Quantity = "200 г"
+                            Quantity = 200m
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 11,
+                            Quantity = 2m
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 14,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 10,
+                            ProductId = 13,
+                            Quantity = 2m
                         },
                         new
                         {
                             DishId = 11,
                             ProductId = 5,
-                            Quantity = "10 шт."
-                        },
-                        new
-                        {
-                            DishId = 11,
-                            ProductId = 13,
-                            Quantity = "2 ст. л."
-                        },
-                        new
-                        {
-                            DishId = 11,
-                            ProductId = 14,
-                            Quantity = "1/2 шт."
+                            Quantity = 10m
                         },
                         new
                         {
                             DishId = 11,
                             ProductId = 17,
-                            Quantity = "1 шт."
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 11,
                             ProductId = 18,
-                            Quantity = "120 г"
+                            Quantity = 120m
                         },
                         new
                         {
                             DishId = 11,
                             ProductId = 19,
-                            Quantity = "1/2 шт."
+                            Quantity = 0.5m
                         },
                         new
                         {
                             DishId = 11,
                             ProductId = 39,
-                            Quantity = "12 шт."
+                            Quantity = 12m
                         },
                         new
                         {
-                            DishId = 12,
-                            ProductId = 6,
-                            Quantity = "1 горсть"
+                            DishId = 11,
+                            ProductId = 13,
+                            Quantity = 2m
                         },
                         new
                         {
-                            DishId = 12,
-                            ProductId = 12,
-                            Quantity = "1 шт."
+                            DishId = 11,
+                            ProductId = 14,
+                            Quantity = 0.5m
                         },
                         new
                         {
                             DishId = 12,
                             ProductId = 16,
-                            Quantity = "180 г"
+                            Quantity = 180m
                         },
                         new
                         {
                             DishId = 12,
-                            ProductId = 34,
-                            Quantity = "4 шт."
+                            ProductId = 6,
+                            Quantity = 1m
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 12,
+                            Quantity = 1m
                         },
                         new
                         {
                             DishId = 12,
                             ProductId = 35,
-                            Quantity = "120 г"
-                        },
-                        new
-                        {
-                            DishId = 12,
-                            ProductId = 38,
-                            Quantity = "1 шт."
+                            Quantity = 120m
                         },
                         new
                         {
                             DishId = 12,
                             ProductId = 40,
-                            Quantity = "200 г"
+                            Quantity = 200m
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 34,
+                            Quantity = 4m
+                        },
+                        new
+                        {
+                            DishId = 12,
+                            ProductId = 38,
+                            Quantity = 1m
                         });
                 });
 
@@ -666,29 +693,29 @@ namespace MealMate_backend.Migrations
                         {
                             Id = 1,
                             AccentColor = "#FFB74D",
-                            Description = "Лёгкие и бодрящие варианты для завтрака.",
-                            Name = "Утренние энергии"
+                            Description = "Р›С‘РіРєРёРµ Рё Р±РѕРґСЂСЏС‰РёРµ РІР°СЂРёР°РЅС‚С‹ РґР»СЏ Р·Р°РІС‚СЂР°РєР°.",
+                            Name = "РЈС‚СЂРµРЅРЅРёРµ СЌРЅРµСЂРіРёРё"
                         },
                         new
                         {
                             Id = 2,
                             AccentColor = "#4FC3F7",
-                            Description = "Сытные блюда, которые готовятся за полчаса.",
-                            Name = "Быстрые обеды"
+                            Description = "РЎС‹С‚РЅС‹Рµ Р±Р»СЋРґР°, РєРѕС‚РѕСЂС‹Рµ РіРѕС‚РѕРІСЏС‚СЃСЏ Р·Р° РїРѕР»С‡Р°СЃР°.",
+                            Name = "Р‘С‹СЃС‚СЂС‹Рµ РѕР±РµРґС‹"
                         },
                         new
                         {
                             Id = 3,
                             AccentColor = "#9575CD",
-                            Description = "Тёплые блюда для уютного вечера.",
-                            Name = "Семейные ужины"
+                            Description = "РўС‘РїР»С‹Рµ Р±Р»СЋРґР° РґР»СЏ СѓСЋС‚РЅРѕРіРѕ РІРµС‡РµСЂР°.",
+                            Name = "РЎРµРјРµР№РЅС‹Рµ СѓР¶РёРЅС‹"
                         },
                         new
                         {
                             Id = 4,
                             AccentColor = "#81C784",
-                            Description = "Баланс белков, жиров и углеводов для активного дня.",
-                            Name = "Здоровый выбор"
+                            Description = "Р‘Р°Р»Р°РЅСЃ Р±РµР»РєРѕРІ, Р¶РёСЂРѕРІ Рё СѓРіР»РµРІРѕРґРѕРІ РґР»СЏ Р°РєС‚РёРІРЅРѕРіРѕ РґРЅСЏ.",
+                            Name = "Р—РґРѕСЂРѕРІС‹Р№ РІС‹Р±РѕСЂ"
                         });
                 });
 
@@ -709,83 +736,83 @@ namespace MealMate_backend.Migrations
                     b.HasData(
                         new
                         {
-                            DishId = 1,
-                            MealGroupId = 1
+                            MealGroupId = 1,
+                            DishId = 1
                         },
                         new
                         {
-                            DishId = 2,
-                            MealGroupId = 1
+                            MealGroupId = 1,
+                            DishId = 2
                         },
                         new
                         {
-                            DishId = 3,
-                            MealGroupId = 1
+                            MealGroupId = 1,
+                            DishId = 3
                         },
                         new
                         {
-                            DishId = 8,
-                            MealGroupId = 1
+                            MealGroupId = 1,
+                            DishId = 8
                         },
                         new
                         {
-                            DishId = 4,
-                            MealGroupId = 2
+                            MealGroupId = 2,
+                            DishId = 4
                         },
                         new
                         {
-                            DishId = 6,
-                            MealGroupId = 2
+                            MealGroupId = 2,
+                            DishId = 6
                         },
                         new
                         {
-                            DishId = 7,
-                            MealGroupId = 2
+                            MealGroupId = 2,
+                            DishId = 7
                         },
                         new
                         {
-                            DishId = 11,
-                            MealGroupId = 2
+                            MealGroupId = 2,
+                            DishId = 11
                         },
                         new
                         {
-                            DishId = 4,
-                            MealGroupId = 3
+                            MealGroupId = 3,
+                            DishId = 4
                         },
                         new
                         {
-                            DishId = 5,
-                            MealGroupId = 3
+                            MealGroupId = 3,
+                            DishId = 5
                         },
                         new
                         {
-                            DishId = 10,
-                            MealGroupId = 3
+                            MealGroupId = 3,
+                            DishId = 10
                         },
                         new
                         {
-                            DishId = 12,
-                            MealGroupId = 3
+                            MealGroupId = 3,
+                            DishId = 12
                         },
                         new
                         {
-                            DishId = 3,
-                            MealGroupId = 4
+                            MealGroupId = 4,
+                            DishId = 3
                         },
                         new
                         {
-                            DishId = 5,
-                            MealGroupId = 4
+                            MealGroupId = 4,
+                            DishId = 5
                         },
                         new
                         {
-                            DishId = 7,
-                            MealGroupId = 4
+                            MealGroupId = 4,
+                            DishId = 7
                         },
                         new
                         {
-                            DishId = 11,
-                            MealGroupId = 4
+                            MealGroupId = 4,
+                            DishId = 11
                         });
                 });
 
@@ -810,6 +837,11 @@ namespace MealMate_backend.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -818,243 +850,324 @@ namespace MealMate_backend.Migrations
                         new
                         {
                             Id = 1,
-                            Category = "Молочные и яйца",
-                            Name = "Яйца куриные"
+                            Category = "РњРѕР»РѕС‡РЅС‹Рµ Рё СЏР№С†Р°",
+                            Name = "РЇР№С†Р° РєСѓСЂРёРЅС‹Рµ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 2,
-                            Category = "Молочные и яйца",
-                            Name = "Молоко"
+                            Category = "РњРѕР»РѕС‡РЅС‹Рµ Рё СЏР№С†Р°",
+                            Name = "РњРѕР»РѕРєРѕ",
+                            Unit = "мл"
                         },
                         new
                         {
                             Id = 3,
-                            Category = "Выпечка",
-                            Name = "Хлеб цельнозерновой"
+                            Category = "Р’С‹РїРµС‡РєР°",
+                            Name = "РҐР»РµР± С†РµР»СЊРЅРѕР·РµСЂРЅРѕРІРѕР№",
+                            Unit = "ломтик"
                         },
                         new
                         {
                             Id = 4,
-                            Category = "Овощи и фрукты",
-                            Name = "Авокадо"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РђРІРѕРєР°РґРѕ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 5,
-                            Category = "Овощи и фрукты",
-                            Name = "Помидоры черри"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РџРѕРјРёРґРѕСЂС‹ С‡РµСЂСЂРё",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 6,
-                            Category = "Овощи и фрукты",
-                            Name = "Шпинат свежий"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РЁРїРёРЅР°С‚ СЃРІРµР¶РёР№",
+                            Unit = "горсть"
                         },
                         new
                         {
                             Id = 7,
-                            Category = "Мясо и птица",
-                            Name = "Куриное филе"
+                            Category = "РњСЏСЃРѕ Рё РїС‚РёС†Р°",
+                            Name = "РљСѓСЂРёРЅРѕРµ С„РёР»Рµ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 8,
-                            Category = "Крупы",
-                            Name = "Рис жасмин"
+                            Category = "РљСЂСѓРїС‹",
+                            Name = "Р РёСЃ Р¶Р°СЃРјРёРЅ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 9,
-                            Category = "Соусы и специи",
-                            Name = "Соевый соус"
+                            Category = "РЎРѕСѓСЃС‹ Рё СЃРїРµС†РёРё",
+                            Name = "РЎРѕРµРІС‹Р№ СЃРѕСѓСЃ",
+                            Unit = "ст. л."
                         },
                         new
                         {
                             Id = 10,
-                            Category = "Овощи и фрукты",
-                            Name = "Имбирь свежий"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РРјР±РёСЂСЊ СЃРІРµР¶РёР№",
+                            Unit = "см"
                         },
                         new
                         {
                             Id = 11,
-                            Category = "Овощи и фрукты",
-                            Name = "Чеснок"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р§РµСЃРЅРѕРє",
+                            Unit = "зубчик"
                         },
                         new
                         {
                             Id = 12,
-                            Category = "Овощи и фрукты",
-                            Name = "Перец болгарский"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РџРµСЂРµС† Р±РѕР»РіР°СЂСЃРєРёР№",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 13,
-                            Category = "Бакалея",
-                            Name = "Оливковое масло"
+                            Category = "Р‘Р°РєР°Р»РµСЏ",
+                            Name = "РћР»РёРІРєРѕРІРѕРµ РјР°СЃР»Рѕ",
+                            Unit = "ст. л."
                         },
                         new
                         {
                             Id = 14,
-                            Category = "Овощи и фрукты",
-                            Name = "Лимон"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р›РёРјРѕРЅ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 15,
-                            Category = "Рыба и морепродукты",
-                            Name = "Лосось"
+                            Category = "Р С‹Р±Р° Рё РјРѕСЂРµРїСЂРѕРґСѓРєС‚С‹",
+                            Name = "Р›РѕСЃРѕСЃСЊ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 16,
-                            Category = "Крупы",
-                            Name = "Киноа"
+                            Category = "РљСЂСѓРїС‹",
+                            Name = "РљРёРЅРѕР°",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 17,
-                            Category = "Овощи и фрукты",
-                            Name = "Огурец"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РћРіСѓСЂРµС†",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 18,
-                            Category = "Сыры",
-                            Name = "Сыр фета"
+                            Category = "РЎС‹СЂС‹",
+                            Name = "РЎС‹СЂ С„РµС‚Р°",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 19,
-                            Category = "Овощи и фрукты",
-                            Name = "Лук красный"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р›СѓРє РєСЂР°СЃРЅС‹Р№",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 20,
-                            Category = "Молочные и яйца",
-                            Name = "Йогурт греческий"
+                            Category = "РњРѕР»РѕС‡РЅС‹Рµ Рё СЏР№С†Р°",
+                            Name = "Р™РѕРіСѓСЂС‚ РіСЂРµС‡РµСЃРєРёР№",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 21,
-                            Category = "Крупы",
-                            Name = "Овсяные хлопья"
+                            Category = "РљСЂСѓРїС‹",
+                            Name = "РћРІСЃСЏРЅС‹Рµ С…Р»РѕРїСЊСЏ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 22,
-                            Category = "Овощи и фрукты",
-                            Name = "Банан"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р‘Р°РЅР°РЅ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 23,
-                            Category = "Бакалея",
-                            Name = "Мёд"
+                            Category = "Р‘Р°РєР°Р»РµСЏ",
+                            Name = "РњС‘Рґ",
+                            Unit = "ст. л."
                         },
                         new
                         {
                             Id = 24,
-                            Category = "Орехи",
-                            Name = "Миндаль"
+                            Category = "РћСЂРµС…Рё",
+                            Name = "РњРёРЅРґР°Р»СЊ",
+                            Unit = "ст. л."
                         },
                         new
                         {
                             Id = 25,
-                            Category = "Овощи и фрукты",
-                            Name = "Морковь"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РњРѕСЂРєРѕРІСЊ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 26,
-                            Category = "Овощи и фрукты",
-                            Name = "Брокколи"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р‘СЂРѕРєРєРѕР»Рё",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 27,
-                            Category = "Консервы",
-                            Name = "Томаты консервированные"
+                            Category = "РљРѕРЅСЃРµСЂРІС‹",
+                            Name = "РўРѕРјР°С‚С‹ РєРѕРЅСЃРµСЂРІРёСЂРѕРІР°РЅРЅС‹Рµ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 28,
-                            Category = "Бакалея",
-                            Name = "Макароны пенне"
+                            Category = "Р‘Р°РєР°Р»РµСЏ",
+                            Name = "РњР°РєР°СЂРѕРЅС‹ РїРµРЅРЅРµ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 29,
-                            Category = "Овощи и фрукты",
-                            Name = "Базилик свежий"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р‘Р°Р·РёР»РёРє СЃРІРµР¶РёР№",
+                            Unit = "горсть"
                         },
                         new
                         {
                             Id = 30,
-                            Category = "Сыры",
-                            Name = "Сыр пармезан"
+                            Category = "РЎС‹СЂС‹",
+                            Name = "РЎС‹СЂ РїР°СЂРјРµР·Р°РЅ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 31,
-                            Category = "Крупы",
-                            Name = "Чечевица красная"
+                            Category = "РљСЂСѓРїС‹",
+                            Name = "Р§РµС‡РµРІРёС†Р° РєСЂР°СЃРЅР°СЏ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 32,
-                            Category = "Бакалея",
-                            Name = "Кокосовое молоко"
+                            Category = "Р‘Р°РєР°Р»РµСЏ",
+                            Name = "РљРѕРєРѕСЃРѕРІРѕРµ РјРѕР»РѕРєРѕ",
+                            Unit = "мл"
                         },
                         new
                         {
                             Id = 33,
-                            Category = "Соусы и специи",
-                            Name = "Карри паста"
+                            Category = "РЎРѕСѓСЃС‹ Рё СЃРїРµС†РёРё",
+                            Name = "РљР°СЂСЂРё РїР°СЃС‚Р°",
+                            Unit = "ст. л."
                         },
                         new
                         {
                             Id = 34,
-                            Category = "Выпечка",
-                            Name = "Лепёшки пшеничные"
+                            Category = "Р’С‹РїРµС‡РєР°",
+                            Name = "Р›РµРїС‘С€РєРё РїС€РµРЅРёС‡РЅС‹Рµ",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 35,
-                            Category = "Овощи и фрукты",
-                            Name = "Кукуруза замороженная"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РљСѓРєСѓСЂСѓР·Р° Р·Р°РјРѕСЂРѕР¶РµРЅРЅР°СЏ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 36,
-                            Category = "Бакалея",
-                            Name = "Овощной бульон"
+                            Category = "Р‘Р°РєР°Р»РµСЏ",
+                            Name = "РћРІРѕС‰РЅРѕР№ Р±СѓР»СЊРѕРЅ",
+                            Unit = "мл"
                         },
                         new
                         {
                             Id = 37,
-                            Category = "Овощи и фрукты",
-                            Name = "Ягоды замороженные"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "РЇРіРѕРґС‹ Р·Р°РјРѕСЂРѕР¶РµРЅРЅС‹Рµ",
+                            Unit = "г"
                         },
                         new
                         {
                             Id = 38,
-                            Category = "Овощи и фрукты",
-                            Name = "Лайм"
+                            Category = "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹",
+                            Name = "Р›Р°Р№Рј",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 39,
-                            Category = "Консервы",
-                            Name = "Маслины"
+                            Category = "РљРѕРЅСЃРµСЂРІС‹",
+                            Name = "РњР°СЃР»РёРЅС‹",
+                            Unit = "шт."
                         },
                         new
                         {
                             Id = 40,
-                            Category = "Консервы",
-                            Name = "Фасоль чёрная консервированная"
+                            Category = "РљРѕРЅСЃРµСЂРІС‹",
+                            Name = "Р¤Р°СЃРѕР»СЊ С‡С‘СЂРЅР°СЏ РєРѕРЅСЃРµСЂРІРёСЂРѕРІР°РЅРЅР°СЏ",
+                            Unit = "г"
                         });
+                });
+
+            modelBuilder.Entity("MealMate_backend.Domain.Entities.ShoppingListItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsChecked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Quantity")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("ShoppingListItems");
+                });
+
+            modelBuilder.Entity("MealMate_backend.Domain.Entities.BaseShoppingProduct", b =>
+                {
+                    b.HasOne("MealMate_backend.Domain.Entities.Product", "Product")
+                        .WithMany("BaseShoppingProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.DishProduct", b =>
@@ -1095,6 +1208,17 @@ namespace MealMate_backend.Migrations
                     b.Navigation("MealGroup");
                 });
 
+            modelBuilder.Entity("MealMate_backend.Domain.Entities.ShoppingListItem", b =>
+                {
+                    b.HasOne("MealMate_backend.Domain.Entities.Product", "Product")
+                        .WithMany("ShoppingListItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("MealMate_backend.Domain.Entities.Dish", b =>
                 {
                     b.Navigation("DishProducts");
@@ -1109,7 +1233,11 @@ namespace MealMate_backend.Migrations
 
             modelBuilder.Entity("MealMate_backend.Domain.Entities.Product", b =>
                 {
+                    b.Navigation("BaseShoppingProducts");
+
                     b.Navigation("DishProducts");
+
+                    b.Navigation("ShoppingListItems");
                 });
 #pragma warning restore 612, 618
         }

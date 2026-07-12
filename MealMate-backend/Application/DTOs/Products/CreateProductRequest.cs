@@ -11,6 +11,10 @@ public class CreateProductRequest
     [MaxLength(40)]
     public string? Category { get; set; }
 
+    [Required]
+    [MaxLength(20)]
+    public string Unit { get; set; } = "шт.";
+
     [MaxLength(200)]
     public string? Notes { get; set; }
 }

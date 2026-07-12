@@ -96,7 +96,8 @@ public class DishService : IDishService
             .Select(dp => new DishProductSummaryDto(
                 dp.ProductId,
                 dp.Product.Name,
-                dp.Quantity))
+                dp.Quantity,
+                dp.Product.Unit))
             .ToList();
 
         var mealGroups = dish.MealGroupDishes

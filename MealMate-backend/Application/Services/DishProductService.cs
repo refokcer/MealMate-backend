@@ -53,7 +53,7 @@ public class DishProductService : IDishProductService
         {
             DishId = request.DishId,
             ProductId = request.ProductId,
-            Quantity = request.Quantity?.Trim()
+            Quantity = request.Quantity
         };
 
         await _context.DishProducts.AddAsync(link, cancellationToken);
@@ -71,7 +71,7 @@ public class DishProductService : IDishProductService
             return null;
         }
 
-        link.Quantity = request.Quantity?.Trim();
+        link.Quantity = request.Quantity;
         await _context.SaveChangesAsync(cancellationToken);
 
         return (await GetAsync(link.DishId, link.ProductId, cancellationToken))!;
@@ -115,5 +115,6 @@ public class DishProductService : IDishProductService
             link.Dish.Name,
             link.ProductId,
             link.Product.Name,
-            link.Quantity);
+            link.Quantity,
+            link.Product.Unit);
 }
